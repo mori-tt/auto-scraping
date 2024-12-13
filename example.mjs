@@ -34,9 +34,23 @@ import { chromium } from "@playwright/test";
   // console.log(pageTitle3);
 
   //  CSSセレクターでの要素の取得の応用3 親要素を取得
-  const pageTitleLocator4 = page.locator(".cards.list-group-item >> ..");
-  const pageTitle4 = await pageTitleLocator4.innerHTML();
-  console.log(pageTitle4);
+  // const pageTitleLocator4 = page.locator(".cards.list-group-item >> ..");
+  const pageTitleLocator4 = page.locator(".cards.list-group-item");
+  const parentLocator = pageTitleLocator4.locator("..");
+  const pageTitle4 = await parentLocator.innerHTML();
+  // console.log(pageTitle4);
+
+  // UIイベントをスクリプトで記述
+  const inputLocator = page.locator('//*[@id="__next"]/div/div[1]/label/input');
+  await page.waitForTimeout(2000);
+  await inputLocator.type("美");
+
+  const pager3Locator = page.locator(".page-link.page-number >> nth=-1");
+  await pager3Locator.click();
+
+  const cardLocator = page.locator(".cards.list-group-item");
+  const cardCount = await cardLocator.count();
+  console.log(cardCount);
 
   await browser.close();
 })();
