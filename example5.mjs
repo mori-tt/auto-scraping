@@ -1,4 +1,4 @@
-// ファイルへの書き込み処理 一番最初に表示されている10件を書き込む 会社名を追加
+// ファイルへの書き込み処理 一番最初に表示されている10件の名前と会社名を書き込む
 import { chromium } from "@playwright/test";
 import * as fs from "fs";
 import { Parser } from "json2csv";
@@ -18,6 +18,7 @@ import { Parser } from "json2csv";
     const cardLocator = cardLocators.locator(`nth=${i}`);
 
     await cardLocator.click();
+
     const companyLocator = await page.locator(".card-title.company");
     const companyText = await companyLocator.textContent();
 
