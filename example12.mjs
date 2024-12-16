@@ -1,3 +1,4 @@
+// google spreadsheetの行の更新
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import env from "dotenv";
 env.config();
