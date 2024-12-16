@@ -43,3 +43,11 @@ coverage/
 # Temporary files
 *.tmp
 *.temp
+
+# Google Cloud 
+google_secrets.json
+*-[0-9a-f]{12}.json
+
+# Alternative pattern for credentials
+*credentials*.json
+*secret*.json
