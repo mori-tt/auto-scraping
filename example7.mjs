@@ -1,3 +1,4 @@
+//GoogleスプレッドシートをPlaywrightで操作
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import env from "dotenv";
 env.config();
